@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class ControlScripts : MonoBehaviour
     [SerializeField] private float leftbound = -4f;
     [SerializeField] private float rightbound = 3f;
     [SerializeField] private float force = 5000f;
+    [SerializeField] private float turn = 5f;
+
+    public event EventHandler OnButtonsDeactivated;
 
     public void MoveLeft()
     {
@@ -26,17 +30,28 @@ public class ControlScripts : MonoBehaviour
         if (newposition.x <= rightbound)
             ball.transform.position = newposition;
     }
+    public void TurnCounterClockwise()
+    {
+        ball.transform.Rotate(new Vector3(0f, -turn, 0f));
+    }
+
+    public void TurnClockwise()
+    {
+        ball.transform.Rotate(new Vector3(0f, turn, 0f));
+    }
 
     public void Shoot()
     {
         Rigidbody rb = ball.GetComponent<Rigidbody>();
-        rb.AddForce(0f,0f,force);
+        rb.AddRelativeForce(0f,0f,force);
     }
 
     public void DeactivateButtons()
     {
         foreach (GameObject button in buttons)
             button.SetActive(false);
+
+        OnButtonsDeactivated?.Invoke(this, EventArgs.Empty);
     }
 
 }
