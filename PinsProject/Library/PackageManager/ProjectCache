@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637837669784780560
-    m_Hash: 228985270
+      ticks: 637850431844615398
+    m_Hash: 1057529631
   m_LockFileStatus:
     m_FilePath: C:/Users/mashl/GitHub/Bowling-Game/PinsProject/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637837669834333608
-    m_Hash: 1587512919
+      ticks: 637850431844615398
+    m_Hash: 1165375285
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
