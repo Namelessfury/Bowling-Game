@@ -12,6 +12,7 @@ public class ControlScripts : MonoBehaviour
     [SerializeField] private float rightbound = 3f;
     [SerializeField] private float force = 5000f;
     [SerializeField] private float turn = 5f;
+  
 
     public event EventHandler OnButtonsDeactivated;
 
@@ -53,5 +54,6 @@ public class ControlScripts : MonoBehaviour
 
         OnButtonsDeactivated?.Invoke(this, EventArgs.Empty);
     }
+
 
 }
