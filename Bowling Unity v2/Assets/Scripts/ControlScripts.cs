@@ -16,6 +16,12 @@ public class ControlScripts : MonoBehaviour
 
     public event EventHandler OnButtonsDeactivated;
 
+    private void Start()
+    {
+        GameManager manager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        manager.OnPinsReset += ReactivateButtons;
+    }
+
     public void MoveLeft()
     {
         Vector3 newposition = ball.transform.position + Vector3.left * move;
@@ -53,6 +59,12 @@ public class ControlScripts : MonoBehaviour
             button.SetActive(false);
 
         OnButtonsDeactivated?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ReactivateButtons(object sender, EventArgs e)
+    {
+        foreach (GameObject button in buttons)
+            button.SetActive(true);
     }
 
 

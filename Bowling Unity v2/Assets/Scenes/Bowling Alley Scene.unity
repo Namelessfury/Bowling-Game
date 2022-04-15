@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5628,6 +5628,7 @@ MonoBehaviour:
   ball: {fileID: 2097928791}
   pins: []
   score: 0
+  turnsCounter: 0
   pointsUI: {fileID: 1315049975}
 --- !u!4 &1943436743
 Transform:
@@ -5690,7 +5691,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -0.56, y: -0.27999997, z: -7.87}
-  - {x: -0.56, y: -0.27999997, z: 2.13}
+  - {x: -0.56, y: -0.27999997, z: 28.130001}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5907,6 +5908,10 @@ PrefabInstance:
     - target: {fileID: 3424472739474721881, guid: 589e438be9ac07b4791fd6fc4342a574, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514327590848936448, guid: 589e438be9ac07b4791fd6fc4342a574, type: 3}
+      propertyPath: lineLength
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3424472739474721883, guid: 589e438be9ac07b4791fd6fc4342a574, type: 3}

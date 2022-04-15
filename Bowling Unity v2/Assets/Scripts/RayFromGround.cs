@@ -8,6 +8,7 @@ public class RayFromGround : MonoBehaviour
 {
     private GameObject obj;
     private LineRenderer line;
+    [SerializeField] private float lineLength = 36;
 
     void Start()
     {
@@ -16,6 +17,9 @@ public class RayFromGround : MonoBehaviour
 
         ControlScripts control = FindObjectOfType<ControlScripts>().GetComponent<ControlScripts>();
         control.OnButtonsDeactivated += DisableLine;
+
+        GameManager manager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        manager.OnPinsReset += ActivateLine;
     }
 
     void Update()
@@ -28,7 +32,7 @@ public class RayFromGround : MonoBehaviour
             if (Physics.Raycast(downRay, out hit))
             {
                 line.SetPosition(0, hit.point);
-                line.SetPosition(1, hit.point + obj.transform.forward * 10);
+                line.SetPosition(1, hit.point + obj.transform.forward * lineLength);
             }
             else
             {
@@ -41,5 +45,10 @@ public class RayFromGround : MonoBehaviour
     private void DisableLine(object sender, EventArgs e)
     {
         line.enabled = false;
+    }
+
+    private void ActivateLine(object sender, EventArgs e)
+    {
+        line.enabled = true;
     }
 }
