@@ -4506,10 +4506,10 @@ MonoBehaviour:
   - {fileID: 1510145249}
   - {fileID: 794152284}
   move: 0.75
-  leftbound: -4
-  rightbound: 3
+  leftbound: -5
+  rightbound: 4
   force: 5000
-  turn: 10
+  turn: 1
 --- !u!1 &1566963351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5875,7 +5875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3424472739474721881, guid: 589e438be9ac07b4791fd6fc4342a574, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 3424472739474721881, guid: 589e438be9ac07b4791fd6fc4342a574, type: 3}
       propertyPath: m_LocalPosition.z

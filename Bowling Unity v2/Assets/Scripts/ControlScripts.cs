@@ -7,11 +7,11 @@ public class ControlScripts : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
     [SerializeField] private List<GameObject> buttons;
-    [SerializeField] private float move = 1f;
-    [SerializeField] private float leftbound = -4f;
-    [SerializeField] private float rightbound = 3f;
+    [SerializeField] private float move = 0.75f;
+    [SerializeField] private float leftbound = -5f;
+    [SerializeField] private float rightbound = 4f;
     [SerializeField] private float force = 5000f;
-    [SerializeField] private float turn = 5f;
+    [SerializeField] private float turn = 1.5f;
   
 
     public event EventHandler OnButtonsDeactivated;
