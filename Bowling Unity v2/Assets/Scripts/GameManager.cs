@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject ball;
     public GameObject[] pins;
     public int score = 0;
-    public int turnsCounter = 0; 
+    public int turnsCounter = 1; 
     public Text pointsUI;
 
     private Vector3[] pinPositions;
@@ -37,30 +37,42 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ball.transform.position.y < -1)
+        //Once the user has two turns
+        if (turnsCounter == 2)
         {
-            CountPinsDown();
-            turnsCounter++;
             ResetPins();
         }
+
+        //Once the ball lands in the ball pit
+        if (ball.transform.position.y < -1)
+        {
+            CountPinsDown(); 
+            turnsCounter++;
+            ResetBall();
+        }
+
+        
     }
 
     void CountPinsDown()
     {
+        //Iterate through all pins on lane
         for(int i = 0; i < pins.Length; i++)
         {
+            //If an active pin is knocked over
             if (pins[i].transform.eulerAngles.z > 5 && pins[i].transform.eulerAngles.z < 355 && pins[i].activeSelf)
             {
-                score++;
-                pins[i].SetActive(false);
+                score++; //Increase score
+                pins[i].SetActive(false); //Set pin as inactive
             }
         }
-        pointsUI.text = score.ToString();
+        pointsUI.text = score.ToString(); //Update scoreboard
     }
 
     void ResetPins()
     {
-        for(int i = 0; i < pins.Length; i++)
+        //Iterate through pins and reset them to their original position. 
+        for (int i = 0; i < pins.Length; i++)
         {
             Rigidbody pinRB = pins[i].GetComponent<Rigidbody>();
             pins[i].SetActive(true);
@@ -69,7 +81,12 @@ public class GameManager : MonoBehaviour
             pins[i].transform.position = pinPositions[i];
             pins[i].transform.rotation = pinRotation;
         }
+    }
+        
 
+    void ResetBall()
+    {
+        //Puts the bowling ball back to its original position
         Rigidbody ballRB = ball.GetComponent<Rigidbody>();
         ballRB.velocity = Vector3.zero;
         ballRB.angularVelocity = Vector3.zero;
