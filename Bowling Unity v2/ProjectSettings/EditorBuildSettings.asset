@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3155e9573be47b34da5815b065ff879a
+  - enabled: 1
+    path: Assets/Scenes/Bowling Alley Scene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameShop.unity
+    guid: 781d3e27b73a9c947890a08f7c707d05
   m_configObjects: {}
