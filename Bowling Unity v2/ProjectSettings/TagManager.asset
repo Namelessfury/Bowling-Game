@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BallTag
   - Pin
+  - Book
+  - Can
   layers:
   - Default
   - TransparentFX
