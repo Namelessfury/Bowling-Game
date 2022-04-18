@@ -38,20 +38,17 @@ public class GameManager : MonoBehaviour
             pinPositions[i] = pins[i].transform.position;
         }
 
-        //Get Level Selected
-        SelectLevel(level);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
         //Once the user has two turns
         if (turnsCounter == 2)
         {
             ResetPins();
-            ResetCans();
+            //ResetCans();
         }
 
         //Once the ball lands in the ball pit
@@ -106,63 +103,6 @@ public class GameManager : MonoBehaviour
         OnPinsReset?.Invoke(this, EventArgs.Empty);
     }
 
-    void SelectLevel(int level)
-    {
-        switch (level)
-        {
-            case 1:
-                //books = GameObject.FindGameObjectsWithTag("Book");
-
-                break;
-            case 2:
-                cans = GameObject.FindGameObjectsWithTag("Can");
-                setCans();
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            default:
-                break;
-        }
-    }
-
-    void setCans()
-    {
-        setObjectsStanding(cans);
-
-        cans[0].transform.position = new Vector3(2.36f, -0.299f, -65.43811f);
-        cans[1].transform.position = new Vector3(1.09f, -0.299f, -58.18f);
-        cans[2].transform.position = new Vector3(-1.99f, -0.299f, -61.1f);
-        cans[3].transform.position = new Vector3(-3.44f, -0.299f, -67.89f);
-        cans[4].transform.position = new Vector3(3.73f, -0.299f, -60.94f);
-
-    }
-
-    void ResetCans()
-    {
-        setObjectsStanding(cans);
-
-        cans[0].transform.position = new Vector3(7.909999f, 30.07f, -63.6f);
-        cans[1].transform.position = new Vector3(8.46f, 30.07f, -64.48f);
-        cans[2].transform.position = new Vector3(7.931f, 30.07f, -65.59f);
-        cans[3].transform.position = new Vector3(8.759998f, 30.07f, -66.24f);
-        cans[4].transform.position = new Vector3(7.126f, 30.07f, -64.882f);
-    }
-
-    void setObjectsStanding(GameObject[] obj)
-    {
-        for (int i = 0; i < obj.Length; i++)
-        {
-            Rigidbody RB = obj[i].GetComponent<Rigidbody>();
-            obj[i].SetActive(true);
-            RB.velocity = Vector3.zero;
-            RB.angularVelocity = Vector3.zero;
-            obj[i].transform.rotation = pinRotation;
-        }
-    }
 }
 
 
