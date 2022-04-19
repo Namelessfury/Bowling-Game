@@ -8,6 +8,7 @@ TagManager:
   - Pin
   - Book
   - Can
+  - Donut
   layers:
   - Default
   - TransparentFX
