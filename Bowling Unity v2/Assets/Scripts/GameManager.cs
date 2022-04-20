@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private Vector3 ballPosition;
     private Quaternion ballRotation;
 
-    public event EventHandler OnPinsReset;
+    public event EventHandler OnBallReset;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +30,15 @@ public class GameManager : MonoBehaviour
         pins = GameObject.FindGameObjectsWithTag("Pin");
         pinPositions = new Vector3[pins.Length];
         pinRotation = pins[0].transform.rotation;
-        ballPosition = ball.transform.position;
-        ballRotation = ball.transform.rotation;
 
         for(int i = 0; i < pins.Length; i++)
         {
             pinPositions[i] = pins[i].transform.position;
         }
 
+        //Get the ball position
+        ballPosition = ball.transform.position;
+        ballRotation = ball.transform.rotation;
     }
 
     // Update is called once per frame
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour
         ballRB.angularVelocity = Vector3.zero;
         ball.transform.position = ballPosition;
         ball.transform.rotation = ballRotation;
-        OnPinsReset?.Invoke(this, EventArgs.Empty);
+        OnBallReset?.Invoke(this, EventArgs.Empty); //Reactivates buttons and direction line
     }
 
 }

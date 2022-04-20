@@ -6,24 +6,27 @@ using UnityEngine;
 [ExecuteAlways]
 public class RayFromGround : MonoBehaviour
 {
-    private GameObject obj;
-    private LineRenderer line;
-    [SerializeField] private float lineLength = 36;
+    private GameObject obj; //what is the line coming from
+    private LineRenderer line;  //our pre-made line
+    [SerializeField] private float lineLength = 36; //how long is the direction line
 
     void Start()
     {
         obj = gameObject;
         line = gameObject.GetComponent<LineRenderer>();
 
+        //ControlScript tells use when to disable the direction line
         ControlScripts control = FindObjectOfType<ControlScripts>().GetComponent<ControlScripts>();
         control.OnButtonsDeactivated += DisableLine;
 
+        //GameManager script tells use when to reactivate the direction line
         GameManager manager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
-        manager.OnPinsReset += ActivateLine;
+        manager.OnBallReset += ActivateLine;
     }
 
     void Update()
     {
+        //Displays the direction line only if there is ground below the ball
         if (line.enabled)
         {
             RaycastHit hit;
@@ -44,11 +47,13 @@ public class RayFromGround : MonoBehaviour
 
     private void DisableLine(object sender, EventArgs e)
     {
+        //Deactivates the direction line
         line.enabled = false;
     }
 
     private void ActivateLine(object sender, EventArgs e)
     {
+        //Reactivates the direction line
         line.enabled = true;
     }
 }
