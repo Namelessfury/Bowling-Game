@@ -36,14 +36,13 @@ public class GameManager : MonoBehaviour
             pinPositions[i] = pins[i].transform.position;
         }
 
-<<<<<<< Updated upstream
         //Get the ball position
         ballPosition = ball.transform.position;
         ballRotation = ball.transform.rotation;
-=======
+
         //Set Timer
         timer = timeLimit;
->>>>>>> Stashed changes
+
     }
 
     // Update is called once per frame
