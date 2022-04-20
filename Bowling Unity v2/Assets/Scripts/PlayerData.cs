@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]   //makes the class able to be saved to a file
 public class PlayerData
 {
-    public int points;
-    public bool[] unlocks;
+    public int points;  //number of points the player has
+    public int[] inventory; //tells the status of each ball: 0 = locked, 1 = unlocked, 2 = equipped
 
-    public PlayerData(int newPoints, bool[] newUnlocks) //constructor for PlayerData
+    public PlayerData(int newPoints, int[] newInventory) //constructor for PlayerData
     {
         points = newPoints;
-        unlocks = newUnlocks;
+        inventory = newInventory;
     }
 }

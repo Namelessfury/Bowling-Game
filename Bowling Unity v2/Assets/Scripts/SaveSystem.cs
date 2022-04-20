@@ -5,13 +5,13 @@ using UnityEngine;
 public static class SaveSystem
 {
     //saves the player's data
-    public static void SavePlayer(int points, bool[] unlocks)
+    public static void SavePlayer(int points, int[] inventory)
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
         string path = Application.persistentDataPath + "/player.file";  //where the player's data is saved
         FileStream stream = new FileStream(path, FileMode.Create);  //creates the file
-        PlayerData data = new PlayerData(points, unlocks);  //puts the data in a object to be saved
+        PlayerData data = new PlayerData(points, inventory);  //puts the data in a object to be saved
 
         formatter.Serialize(stream, data);  //saves the data to a file
         stream.Close();
@@ -33,8 +33,8 @@ public static class SaveSystem
         }
         else
         {
-            bool[] freshUnlocks = { false, false };
-            SavePlayer(0, freshUnlocks);    //if there is no save data, create fresh save data
+            int[] freshInventory = { 2, 0, 0, 0 };  //equips the default ball, all others balls are set to locked
+            SavePlayer(0, freshInventory);    //if there is no save data, create fresh save data
             return LoadPlayer();    //return the fresh save data
         }
     }
