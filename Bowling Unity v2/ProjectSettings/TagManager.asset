@@ -6,6 +6,9 @@ TagManager:
   tags:
   - BallTag
   - Pin
+  - Book
+  - Can
+  - Donut
   layers:
   - Default
   - TransparentFX
