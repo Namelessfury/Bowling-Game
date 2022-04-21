@@ -9,6 +9,7 @@ TagManager:
   - Book
   - Can
   - Donut
+  - Cup
   layers:
   - Default
   - TransparentFX
