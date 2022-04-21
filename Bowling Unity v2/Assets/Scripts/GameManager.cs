@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
 {
     public GameObject ball;
     public GameObject[] pins;
-    public float timeLimit = 5.0f;
+    public float timeLimit = 8.0f;
     private float timer; 
 
     public int score = 0;
     public int turnsCounter = 0; 
     public Text pointsUI;
+    AudioSource source;
 
     private Vector3[] pinPositions;
     private Quaternion pinRotation;
@@ -42,17 +43,18 @@ public class GameManager : MonoBehaviour
 
         //Set Timer
         timer = timeLimit;
-
+               
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //Start counting down timer after the ball has been launched
-        if (ball.transform.position.z > -5)
+        if (ball.transform.position.z > -7)
         {
             timer -= Time.deltaTime;
-        }
+        }       
 
         //Once the ball lands in the ball pit
         if (ball.transform.position.y < -1 || timer < 0)
@@ -63,8 +65,8 @@ public class GameManager : MonoBehaviour
             timer = timeLimit; 
         }
 
-        //Once the user has two turns
-        if (turnsCounter == 2)
+        //Once the user has three turns
+        if (turnsCounter == 3 && timer < 0)
         {
             ResetPins();
             SceneManager.LoadScene("Level Select");

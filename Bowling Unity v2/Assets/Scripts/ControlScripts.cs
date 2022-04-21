@@ -78,6 +78,7 @@ public class ControlScripts : MonoBehaviour
         //Shoot the ball forward
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         rb.AddRelativeForce(0f,0f,force);
+        
     }
 
     public void DeactivateButtons()
