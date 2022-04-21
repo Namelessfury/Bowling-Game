@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Once the user has three turns
-        if (turnsCounter >= 3)
+        if (turnsCounter > 3)
         {
             ResetPins();
             SceneManager.LoadScene("Level Select");
