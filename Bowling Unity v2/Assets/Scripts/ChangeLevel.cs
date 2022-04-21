@@ -29,4 +29,9 @@ public class ChangeLevel : MonoBehaviour
     {
         SceneManager.LoadScene("Level 5");
     }
+
+    public void Leave()
+    {
+        Application.Quit();
+    }
 }

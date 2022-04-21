@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public GameObject ball;
     public GameObject[] pins;
     public float timeLimit = 8.0f;
-    private float timer; 
+    private float timer;
 
-    public int score = 0;
-    public int turnsCounter = 0; 
+    public int score;
+    public int turnsCounter;
+    public int maxTurns;
     public Text pointsUI;
+    public Text turnsUI;
     AudioSource source;
 
     private Vector3[] pinPositions;
@@ -27,12 +29,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //Get the pins positions 
         pins = GameObject.FindGameObjectsWithTag("Pin");
         pinPositions = new Vector3[pins.Length];
         pinRotation = pins[0].transform.rotation;
 
-        for(int i = 0; i < pins.Length; i++)
+        for (int i = 0; i < pins.Length; i++)
         {
             pinPositions[i] = pins[i].transform.position;
         }
@@ -43,7 +46,7 @@ public class GameManager : MonoBehaviour
 
         //Set Timer
         timer = timeLimit;
-               
+
     }
 
     // Update is called once per frame
@@ -54,35 +57,37 @@ public class GameManager : MonoBehaviour
         if (ball.transform.position.z > -7)
         {
             timer -= Time.deltaTime;
-        }       
+        }
 
         //Once the ball lands in the ball pit
         if (ball.transform.position.y < -1 || timer < 0)
         {
-            CountPinsDown(); 
+            CountPinsDown();
             turnsCounter++;
             ResetBall();
-            timer = timeLimit; 
+            timer = timeLimit;
         }
 
         //Once the user has three turns
-        if (turnsCounter == 3 && timer < 0)
+        if (turnsCounter >= 3)
         {
             ResetPins();
             SceneManager.LoadScene("Level Select");
         }
+
+        turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
     }
 
     void CountPinsDown()
     {
         //Iterate through all pins on lane
-        for(int i = 0; i < pins.Length; i++)
+        for (int i = 0; i < pins.Length; i++)
         {
             //If an active pin is knocked over
             if (pins[i].transform.eulerAngles.z > 5 && pins[i].transform.eulerAngles.z < 355 && pins[i].activeSelf)
             {
-                score++; 
-                pins[i].SetActive(false); 
+                score++;
+                pins[i].SetActive(false);
             }
             else
             {
@@ -110,7 +115,7 @@ public class GameManager : MonoBehaviour
             pins[i].transform.rotation = pinRotation;
         }
     }
-        
+
 
     void ResetBall()
     {
@@ -124,6 +129,8 @@ public class GameManager : MonoBehaviour
     }
 
 }
+
+    
 
 
 
