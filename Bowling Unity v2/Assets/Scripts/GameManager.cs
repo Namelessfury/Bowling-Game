@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public Text turnsUI;
     AudioSource source;
 
+    public Animator transition;
+    public float transitionTime = 1f; 
+
     private Vector3[] pinPositions;
     private Quaternion pinRotation;
     private Vector3 ballPosition;
@@ -54,6 +57,9 @@ public class GameManager : MonoBehaviour
         //Set Timer
         timer = timeLimit;
 
+        //Set Turns UI
+        turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
+
     }
 
     // Update is called once per frame
@@ -72,17 +78,21 @@ public class GameManager : MonoBehaviour
             CountPinsDown();
             turnsCounter++;
             ResetBall();
-            timer = timeLimit;
+            timer = timeLimit;           
         }
 
         //Once the user has three turns
         if (turnsCounter > 3)
         {
             ResetPins();
-            SceneManager.LoadScene("Level Select");
+            StartCoroutine(LoadLevel());
+        //If the user has not reached 3 turns, update turns UI
+        }else
+        {
+            turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
         }
 
-        turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
+        
     }
 
     void CountPinsDown()
@@ -135,6 +145,12 @@ public class GameManager : MonoBehaviour
         OnBallReset?.Invoke(this, EventArgs.Empty); //Reactivates buttons and direction line
     }
 
+    IEnumerator LoadLevel()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene("Level Select");
+    }
 }
 
     
