@@ -6,30 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class MenuMain : MonoBehaviour
 {
+    public UnityEngine.UI.Text CounterText;
 
-    void Start() {
-        //GameObject GameManagerObj = GameObject.Find("GameManager");
-        //GameManager ManagerScript = GameManagerObj.GetComponent<GameManager>();
-        GameObject pointsDisplay = GameObject.Find("pointTxt");
-        GameManager ManagerScript = FindObjectOfType<GameManager>().GetComponent<GameManager>();
-        int points = ManagerScript.score;
-        string dis = points.ToString();
-        updatePointCounter(dis, pointsDisplay);
+    void Start()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        int PlayerPoints = data.points;
+        updatePointCounter(PlayerPoints);
     }
 
-
-    public void PlayGame()
+    void PlayGame()
     {
         SceneManager.LoadScene("Assets/Scenes/Bowling Alley Scene.unity");
     }
 
-    public void GoToShop() 
+    void GoToShop() 
     {
         SceneManager.LoadScene("Assets/Scenes/GameShop.unity");
     }
 
-    public void updatePointCounter(string Display, GameObject Counter) 
+    void updatePointCounter(int Display) 
     {
-        Counter.GetComponent<Text>().text = Display; 
+        CounterText.GetComponent<Text>().text = Display.ToString(); 
     }
 }
