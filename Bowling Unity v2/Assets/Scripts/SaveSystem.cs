@@ -1,3 +1,9 @@
+/*  File Name:          
+ *  Purpose:            
+ *  Contributors:       Myles Caesar
+ *  Last Modified:      
+ */
+
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;

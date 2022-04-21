@@ -1,3 +1,9 @@
+/*  File Name:          ChangeLevel.cs     
+ *  Purpose:            Manages the changing of levels depending on the button pressed by the user.
+ *  Contributors:       Ashley Mojica
+ *  Last Modified:      4/21/2022 - Ashley Mojica
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

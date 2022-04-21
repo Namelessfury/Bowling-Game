@@ -1,3 +1,9 @@
+/*  File Name:          Sound Credits.cs    
+ *  Purpose:            Provides the appropriate credits for the audio files used in the application    
+ *  Contributors:       Ashley Mojica    
+ *  Last Modified:      4/20/2022 - Ashley Mojica  
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

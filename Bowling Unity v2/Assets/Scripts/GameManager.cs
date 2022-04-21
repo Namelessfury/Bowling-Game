@@ -1,3 +1,10 @@
+/*  File Name:          GameManager.cs
+ *  Purpose:            Manages the majority of the game mechanics, including score, turns,and pin and ball reset. 
+ *  Contributors:       Ashley Mojica
+ *                      Myles Caesar
+ *  Last Modified:      4/21/2022 - Ashley Mojica
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

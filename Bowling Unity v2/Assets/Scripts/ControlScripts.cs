@@ -1,3 +1,9 @@
+/*  File Name:          Control Scripts.cs        
+ *  Purpose:            Manages the movement of the bowling ball.  
+ *  Contributors:       Myles Ceasar
+ *  Last Modified:      ---
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
