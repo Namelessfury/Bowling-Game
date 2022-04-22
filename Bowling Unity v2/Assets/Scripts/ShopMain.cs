@@ -12,14 +12,14 @@ using UnityEngine.SceneManagement;
 
 public class ShopMain : MonoBehaviour
 {
-    //Buy the Lucky Ball
-    public void BuyLuckyBall() {
+    //Buy the Sky Ball
+    public void BuySkyBall() {
 
         BuyBall(30, 1);
     }
 
-    //Buy the Sky Ball
-    public void BuySkyBall() {
+    //Buy the Lucky Ball
+    public void BuyLuckyBall() {
 
         BuyBall(50, 2);
     }
