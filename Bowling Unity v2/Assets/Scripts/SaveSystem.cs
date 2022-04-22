@@ -1,7 +1,7 @@
-/*  File Name:          
- *  Purpose:            
+/*  File Name:          Save System.cs
+ *  Purpose:            Save and Load System for the game.
  *  Contributors:       Myles Caesar
- *  Last Modified:      
+ *  Last Modified:      4/20/22 - Myles Caesar
  */
 
 using System.Runtime.Serialization.Formatters.Binary;

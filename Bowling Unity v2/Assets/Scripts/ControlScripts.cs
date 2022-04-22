@@ -1,7 +1,7 @@
 /*  File Name:          Control Scripts.cs        
- *  Purpose:            Manages the movement of the bowling ball.  
+ *  Purpose:            Manages the movement of the bowling ball and its buttons.  
  *  Contributors:       Myles Ceasar
- *  Last Modified:      ---
+ *  Last Modified:      4/21/22 - Myles Caesar
  */
 
 using System;
@@ -38,25 +38,6 @@ public class ControlScripts : MonoBehaviour
         if (newposition.x >= leftbound)
             ball.transform.position = newposition;
     }
-
-    /*public void StartHoldLeft()
-    {
-        StartCoroutine(ContinueMoveLeft());
-    }
-
-    public void EndHoldLeft()
-    {
-        StopCoroutine(ContinueMoveLeft());
-    }
-
-    public IEnumerator ContinueMoveLeft()
-    {
-        while (true)
-        {
-            MoveLeft();
-            yield return new WaitForSeconds(0.1f);
-        }
-    }*/
 
     public void MoveRight()
     {

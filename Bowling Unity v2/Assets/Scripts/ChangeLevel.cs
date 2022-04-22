@@ -1,7 +1,8 @@
 /*  File Name:          ChangeLevel.cs     
  *  Purpose:            Manages the changing of levels depending on the button pressed by the user.
  *  Contributors:       Ashley Mojica
- *  Last Modified:      4/21/2022 - Ashley Mojica
+ *                      Myles Caesar
+ *  Last Modified:      4/22/2022 - Myles Caesar
  */
 
 using System.Collections;
@@ -11,6 +12,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeLevel : MonoBehaviour
 {
+    //Each function loads their respective scene
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
@@ -36,6 +38,17 @@ public class ChangeLevel : MonoBehaviour
         SceneManager.LoadScene("Level 5");
     }
 
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("Level Select");
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    //Quits the game
     public void Leave()
     {
         Application.Quit();

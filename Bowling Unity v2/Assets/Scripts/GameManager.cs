@@ -2,7 +2,7 @@
  *  Purpose:            Manages the majority of the game mechanics, including score, turns,and pin and ball reset. 
  *  Contributors:       Ashley Mojica
  *                      Myles Caesar
- *  Last Modified:      4/21/2022 - Ashley Mojica
+ *  Last Modified:      4/22/2022 - Myles Caesar
  */
 
 using System;
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int maxTurns;
     public Text pointsUI;
     public Text turnsUI;
+    public Text roundEndPointsUI;
     AudioSource source;
 
     public Animator transition;
@@ -33,6 +34,9 @@ public class GameManager : MonoBehaviour
     private Quaternion pinRotation;
     private Vector3 ballPosition;
     private Quaternion ballRotation;
+
+    [SerializeField] private GameObject ControlsUI;
+    [SerializeField] private GameObject RoundEndUI;
 
     public event EventHandler OnBallReset;
 
@@ -84,10 +88,14 @@ public class GameManager : MonoBehaviour
         //Once the user has three turns
         if (turnsCounter > 3)
         {
-            ResetPins();
-            StartCoroutine(LoadLevel());
-        //If the user has not reached 3 turns, update turns UI
-        }else
+            //Swaps the UI to the Round End UI
+            roundEndPointsUI.text = pointsUI.text;
+            ControlsUI.SetActive(false);
+            RoundEndUI.SetActive(true);
+
+            //If the user has not reached 3 turns, update turns UI
+        }
+        else
         {
             turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
         }
@@ -145,8 +153,15 @@ public class GameManager : MonoBehaviour
         OnBallReset?.Invoke(this, EventArgs.Empty); //Reactivates buttons and direction line
     }
 
-    IEnumerator LoadLevel()
+    public void StartLoadLevelTransition()
     {
+        //Starts the transition coroutine
+        StartCoroutine(LoadLevelTransition());
+    }
+
+    IEnumerator LoadLevelTransition()
+    {
+        //Fades to black and loads Level Select scene
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("Level Select");

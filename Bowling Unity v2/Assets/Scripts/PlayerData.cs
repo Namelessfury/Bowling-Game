@@ -1,7 +1,7 @@
-/*  File Name:          
- *  Purpose:            
+/*  File Name:          Player Data.cs
+ *  Purpose:            A class file for our player's data (save class).
  *  Contributors:       Myles Caesar
- *  Last Modified:      
+ *  Last Modified:      4/20/22 - Myles Caesar
  */
 
 using System.Collections;
