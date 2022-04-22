@@ -1116,7 +1116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 109, y: -48}
+  m_AnchoredPosition: {x: 203, y: -48}
   m_SizeDelta: {x: 55.713318, y: 56.096405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012206002
@@ -1165,7 +1165,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1517725973}
         m_TargetAssemblyTypeName: ChangeLevel, Assembly-CSharp
-        m_MethodName: Leave
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
