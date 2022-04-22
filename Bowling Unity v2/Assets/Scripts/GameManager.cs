@@ -93,9 +93,11 @@ public class GameManager : MonoBehaviour
             ControlsUI.SetActive(false);
             RoundEndUI.SetActive(true);
 
-            //If the user has not reached 3 turns, update turns UI
+            //Saves the player's points
+            PlayerData data = SaveSystem.LoadPlayer();
+            SaveSystem.SavePlayer(data.points + int.Parse(roundEndPointsUI.text), data.inventory);
         }
-        else
+        else //If the user has not reached 3 turns, update turns UI
         {
             turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
         }

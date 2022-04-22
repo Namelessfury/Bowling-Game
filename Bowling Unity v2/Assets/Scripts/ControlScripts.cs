@@ -1,4 +1,4 @@
-/*  File Name:          Control Scripts.cs        
+/*  File Name:          ControlScripts.cs        
  *  Purpose:            Manages the movement of the bowling ball and its buttons.  
  *  Contributors:       Myles Ceasar
  *  Last Modified:      4/21/22 - Myles Caesar
