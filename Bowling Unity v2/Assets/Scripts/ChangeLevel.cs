@@ -38,6 +38,11 @@ public class ChangeLevel : MonoBehaviour
         SceneManager.LoadScene("Level 5");
     }
 
+    public void LoadGameShop()
+    {
+        SceneManager.LoadScene("Game Shop");
+    }
+
     public void LoadLevelSelect()
     {
         SceneManager.LoadScene("Level Select");
@@ -45,7 +50,7 @@ public class ChangeLevel : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     //Quits the game

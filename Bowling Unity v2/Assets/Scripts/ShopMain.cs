@@ -5,13 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ShopMain : MonoBehaviour
 {
-    //public PlayerData Data;
-
-    //void Start() {
-     //   PlayerData data = SaveSystem.LoadPlayer();
-     //   Data = data;
-    //} 
-
     public void BuyLuckyBall() {
 
         PlayerData Data = SaveSystem.LoadPlayer();
@@ -88,6 +81,6 @@ public class ShopMain : MonoBehaviour
 
     public void BackToMenu() 
     {
-        SceneManager.LoadScene("Assets/Scenes/MainMenu.unity");
+        SceneManager.LoadScene("MainMenu");
     }
 }

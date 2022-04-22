@@ -15,14 +15,19 @@ public class MenuMain : MonoBehaviour
         updatePointCounter(PlayerPoints);
     }
 
-    void PlayGame()
+    public void PlayGame()
     {
-        SceneManager.LoadScene("Assets/Scenes/Bowling Alley Scene.unity");
+        SceneManager.LoadScene("Level Select");
     }
 
-    void GoToShop() 
+    public void GoToShop() 
     {
-        SceneManager.LoadScene("Assets/Scenes/GameShop.unity");
+        SceneManager.LoadScene("GameShop");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     void updatePointCounter(int Display) 
