@@ -38,12 +38,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject ControlsUI;
     [SerializeField] private GameObject RoundEndUI;
 
+    private bool endingFlag = false;
+
     public event EventHandler OnBallReset;
 
     // Start is called before the first frame update
     void Start()
     {
-
         //Get the pins positions 
         pins = GameObject.FindGameObjectsWithTag("Pin");
         pinPositions = new Vector3[pins.Length];
@@ -86,8 +87,10 @@ public class GameManager : MonoBehaviour
         }
 
         //Once the user has three turns
-        if (turnsCounter > 3)
+        if (turnsCounter > 3 && endingFlag == false)
         {
+            endingFlag = true;  //Makes sure the round end only happends once
+
             //Swaps the UI to the Round End UI
             roundEndPointsUI.text = pointsUI.text;
             ControlsUI.SetActive(false);
@@ -157,6 +160,9 @@ public class GameManager : MonoBehaviour
 
     public void StartLoadLevelTransition()
     {
+        //Deactivates RoundEndUI
+        RoundEndUI.SetActive(false);
+
         //Starts the transition coroutine
         StartCoroutine(LoadLevelTransition());
     }

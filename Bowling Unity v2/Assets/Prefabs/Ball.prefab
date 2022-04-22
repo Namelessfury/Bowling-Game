@@ -238,3 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb29a72e7c4bcda409f4c3bcc9998493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skyballMaterial: {fileID: 2100000, guid: e42c2810022086141b250fcee5b278a7, type: 2}
+  luckyballMaterial: {fileID: 2100000, guid: 80c51e77dd9547e43b1b991ac9b02d5c, type: 2}
+  cosmicballMaterial: {fileID: 2100000, guid: a79219ef08f4a2041a60d8baa7fc619b, type: 2}
+  scaleDown: 0.5
+  scaleUp: 0.5
+  massDown: 0.5
+  massUp: 0.5
