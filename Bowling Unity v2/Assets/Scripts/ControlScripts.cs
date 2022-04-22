@@ -1,7 +1,7 @@
 /*  File Name:          Control Scripts.cs        
- *  Purpose:            Manages the movement of the bowling ball.  
+ *  Purpose:            Manages the movement of the bowling ball and its buttons.  
  *  Contributors:       Myles Ceasar
- *  Last Modified:      ---
+ *  Last Modified:      4/21/22 - Myles Caesar
  */
 
 using System;

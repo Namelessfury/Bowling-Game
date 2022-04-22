@@ -1,7 +1,7 @@
-/*  File Name:          
- *  Purpose:            
+/*  File Name:              Ray From Ground
+ *  Purpose:                Makes a direction line below the ball if there's ground below it
  *  Contributors:           Myles Caesar   
- *  Last Modified:      
+ *  Last Modified:          4/14/22 - Myles Caesar
  */
 
 using System;

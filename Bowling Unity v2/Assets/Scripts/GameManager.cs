@@ -2,7 +2,7 @@
  *  Purpose:            Manages the majority of the game mechanics, including score, turns,and pin and ball reset. 
  *  Contributors:       Ashley Mojica
  *                      Myles Caesar
- *  Last Modified:      4/21/2022 - Ashley Mojica
+ *  Last Modified:      4/21/2022 - Ashley Mojica, Myles Caesar
  */
 
 using System;
@@ -24,12 +24,16 @@ public class GameManager : MonoBehaviour
     public int maxTurns;
     public Text pointsUI;
     public Text turnsUI;
+    public Text roundEndPointsUI;
     AudioSource source;
 
     private Vector3[] pinPositions;
     private Quaternion pinRotation;
     private Vector3 ballPosition;
     private Quaternion ballRotation;
+
+    [SerializeField]private GameObject ControlsUI;
+    [SerializeField] private GameObject RoundEndUI;
 
     public event EventHandler OnBallReset;
 
@@ -78,8 +82,10 @@ public class GameManager : MonoBehaviour
         //Once the user has three turns
         if (turnsCounter > 3)
         {
-            ResetPins();
-            SceneManager.LoadScene("Level Select");
+            //Swaps the UI to the Round End UI
+            roundEndPointsUI.text = pointsUI.text;
+            ControlsUI.SetActive(false);
+            RoundEndUI.SetActive(true);
         }
 
         turnsUI.text = string.Concat(turnsCounter.ToString(), string.Concat("/", maxTurns));
