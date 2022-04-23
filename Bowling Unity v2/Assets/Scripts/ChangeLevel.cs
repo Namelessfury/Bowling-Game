@@ -53,6 +53,12 @@ public class ChangeLevel : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    //Reloads the same scene
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     //Quits the game
     public void Leave()
     {

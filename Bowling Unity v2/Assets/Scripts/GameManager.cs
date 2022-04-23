@@ -97,8 +97,7 @@ public class GameManager : MonoBehaviour
             RoundEndUI.SetActive(true);
 
             //Saves the player's points
-            PlayerData data = SaveSystem.LoadPlayer();
-            SaveSystem.SavePlayer(data.points + int.Parse(roundEndPointsUI.text), data.inventory);
+            SavePoints();
         }
         else //If the user has not reached 3 turns, update turns UI
         {
@@ -173,6 +172,13 @@ public class GameManager : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("Level Select");
+    }
+
+    public void SavePoints()
+    {
+        //Earned points are added to the player's account
+        PlayerData data = SaveSystem.LoadPlayer();
+        SaveSystem.SavePlayer(data.points + int.Parse(pointsUI.text), data.inventory);
     }
 }
 

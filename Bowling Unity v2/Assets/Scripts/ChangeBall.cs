@@ -15,8 +15,8 @@ public class ChangeBall : MonoBehaviour
     public Material luckyballMaterial;
     public Material cosmicballMaterial;
 
-    private float scaleDown = 0.5f;    //if needed, how much we make the ball smaller
-    private float scaleUp = 0.5f;  //if needed, how much we make the ball larger
+    private float scaleDown = 0.3f;    //if needed, how much we make the ball smaller
+    private float scaleUp = 0.3f;  //if needed, how much we make the ball larger
 
     private float massDown = 0.5f; //if needed, how much weight we take off the ball
     private float massUp = 0.5f;   //if needed, how much weight we put on the ball

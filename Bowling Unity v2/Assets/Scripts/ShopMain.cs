@@ -12,6 +12,13 @@ using UnityEngine.SceneManagement;
 
 public class ShopMain : MonoBehaviour
 {
+    //Buy the Retro Ball
+    public void BuyRetroBall()
+    {
+
+        BuyBall(0, 0);
+    }
+
     //Buy the Sky Ball
     public void BuySkyBall() {
 
